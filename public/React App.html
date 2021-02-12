@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <style>@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap);</style><style>*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #111;
+  color: #fff;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.lists{
+  margin-top: -150px;
+}
+
+.loading img{
+  width: 700px;
+}
+
+.loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvQXBwLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFFQTtFQUNFLHNCQUFzQjtBQUN4Qjs7QUFFQTtFQUNFLHNCQUFzQjtFQUN0QixXQUFXO0VBQ1gsU0FBUztFQUNULGlDQUFpQztBQUNuQzs7QUFFQTtFQUNFLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGVBQWU7RUFDZixPQUFPO0VBQ1AsTUFBTTtFQUNOLFFBQVE7RUFDUixTQUFTO0VBQ1QsdUJBQXVCO0VBQ3ZCLFdBQVc7RUFDWCxhQUFhO0VBQ2IsdUJBQXVCO0VBQ3ZCLG1CQUFtQjs7O0FBR3JCIiwic291cmNlc0NvbnRlbnQiOlsiQGltcG9ydCB1cmwoJ2h0dHBzOi8vZm9udHMuZ29vZ2xlYXBpcy5jb20vY3NzMj9mYW1pbHk9Um9ib3RvOndnaHRANDAwOzcwMCZkaXNwbGF5PXN3YXAnKTtcclxuXHJcbip7XHJcbiAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxufVxyXG5cclxuYm9keXtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMTExO1xyXG4gIGNvbG9yOiAjZmZmO1xyXG4gIG1hcmdpbjogMDtcclxuICBmb250LWZhbWlseTogJ1JvYm90bycsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi5saXN0c3tcclxuICBtYXJnaW4tdG9wOiAtMTUwcHg7XHJcbn1cclxuXHJcbi5sb2FkaW5nIGltZ3tcclxuICB3aWR0aDogNzAwcHg7XHJcbn1cclxuXHJcbi5sb2FkaW5nIHtcclxuICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgbGVmdDogMDtcclxuICB0b3A6IDA7XHJcbiAgcmlnaHQ6IDA7XHJcbiAgYm90dG9tOiAwO1xyXG4gIGJhY2tncm91bmQtY29sb3I6IGJsYWNrO1xyXG4gIHotaW5kZXg6IDk5O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBjZW50ZXI7XHJcbiAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuXHJcblxyXG59Il0sInNvdXJjZVJvb3QiOiIifQ== */</style><style>.movieRow {
+  margin-bottom: 30px;
+}
+
+.movieRow h2 {
+  margin: 0px 0px 0px 30px;
+}
+
+.movieRow--listarea{
+  padding-left: 30px ;
+  overflow-x: hidden;
+}
+
+.movieRow--list{
+  transition:  all ease 0.5s;
+}
+.movieRow--item{
+  display: inline-block;
+  width: 150px;
+  cursor: pointer;
+}
+.movieRow--item img {
+  width: 100%;
+  transform: scale(0.9);
+  transition: all ease 0.25s;
+}
+
+.movieRow--item img:hover{
+  transform: scale(1);
+}
+
+.movieRow--left,
+.movieRow--right{
+  margin-top: 32px;
+  position: absolute;
+  width: 40px;
+  height: 225px;
+  background-color:rgba(0, 0, 0, 0.247);
+  z-index:99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+  transition: all ease 0.4s;
+}
+
+.movieRow:hover .movieRow--left ,
+.movieRow:hover .movieRow--right{
+  opacity: 1;
+
+}
+    
+.movieRow--left img,
+.movieRow--right img{
+  width: 45px;
+  padding: 5px;
+}
+.movieRow--left{
+  left: 0;
+}
+
+.movieRow--right{
+  right: 0;
+}
+
+
+
+@media screen and (max-width: 760px){
+  .movieRow--left,
+  .movieRow--right{
+    opacity: 1;
+  }
+}
+
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9Nb3ZpZVJvdy5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxtQkFBbUI7QUFDckI7O0FBRUE7RUFDRSx3QkFBd0I7QUFDMUI7O0FBRUE7RUFDRSxtQkFBbUI7RUFDbkIsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsMEJBQTBCO0FBQzVCO0FBQ0E7RUFDRSxxQkFBcUI7RUFDckIsWUFBWTtFQUNaLGVBQWU7QUFDakI7QUFDQTtFQUNFLFdBQVc7RUFDWCxxQkFBcUI7RUFDckIsMEJBQTBCO0FBQzVCOztBQUVBO0VBQ0UsbUJBQW1CO0FBQ3JCOztBQUVBOztFQUVFLGdCQUFnQjtFQUNoQixrQkFBa0I7RUFDbEIsV0FBVztFQUNYLGFBQWE7RUFDYixxQ0FBcUM7RUFDckMsVUFBVTtFQUNWLGFBQWE7RUFDYixtQkFBbUI7RUFDbkIsdUJBQXVCO0VBQ3ZCLGdCQUFnQjtFQUNoQixlQUFlO0VBQ2YsVUFBVTtFQUNWLHlCQUF5QjtBQUMzQjs7QUFFQTs7RUFFRSxVQUFVOztBQUVaOztBQUVBOztFQUVFLFdBQVc7RUFDWCxZQUFZO0FBQ2Q7QUFDQTtFQUNFLE9BQU87QUFDVDs7QUFFQTtFQUNFLFFBQVE7QUFDVjs7OztBQUlBO0VBQ0U7O0lBRUUsVUFBVTtFQUNaO0FBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyIubW92aWVSb3cge1xyXG4gIG1hcmdpbi1ib3R0b206IDMwcHg7XHJcbn1cclxuXHJcbi5tb3ZpZVJvdyBoMiB7XHJcbiAgbWFyZ2luOiAwcHggMHB4IDBweCAzMHB4O1xyXG59XHJcblxyXG4ubW92aWVSb3ctLWxpc3RhcmVhe1xyXG4gIHBhZGRpbmctbGVmdDogMzBweCA7XHJcbiAgb3ZlcmZsb3cteDogaGlkZGVuO1xyXG59XHJcblxyXG4ubW92aWVSb3ctLWxpc3R7XHJcbiAgdHJhbnNpdGlvbjogIGFsbCBlYXNlIDAuNXM7XHJcbn1cclxuLm1vdmllUm93LS1pdGVte1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICB3aWR0aDogMTUwcHg7XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcbi5tb3ZpZVJvdy0taXRlbSBpbWcge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIHRyYW5zZm9ybTogc2NhbGUoMC45KTtcclxuICB0cmFuc2l0aW9uOiBhbGwgZWFzZSAwLjI1cztcclxufVxyXG5cclxuLm1vdmllUm93LS1pdGVtIGltZzpob3ZlcntcclxuICB0cmFuc2Zvcm06IHNjYWxlKDEpO1xyXG59XHJcblxyXG4ubW92aWVSb3ctLWxlZnQsXHJcbi5tb3ZpZVJvdy0tcmlnaHR7XHJcbiAgbWFyZ2luLXRvcDogMzJweDtcclxuICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgd2lkdGg6IDQwcHg7XHJcbiAgaGVpZ2h0OiAyMjVweDtcclxuICBiYWNrZ3JvdW5kLWNvbG9yOnJnYmEoMCwgMCwgMCwgMC4yNDcpO1xyXG4gIHotaW5kZXg6OTk7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgY3Vyc29yOiBwb2ludGVyO1xyXG4gIG9wYWNpdHk6IDA7XHJcbiAgdHJhbnNpdGlvbjogYWxsIGVhc2UgMC40cztcclxufVxyXG5cclxuLm1vdmllUm93OmhvdmVyIC5tb3ZpZVJvdy0tbGVmdCAsXHJcbi5tb3ZpZVJvdzpob3ZlciAubW92aWVSb3ctLXJpZ2h0e1xyXG4gIG9wYWNpdHk6IDE7XHJcblxyXG59XHJcbiAgICBcclxuLm1vdmllUm93LS1sZWZ0IGltZyxcclxuLm1vdmllUm93LS1yaWdodCBpbWd7XHJcbiAgd2lkdGg6IDQ1cHg7XHJcbiAgcGFkZGluZzogNXB4O1xyXG59XHJcbi5tb3ZpZVJvdy0tbGVmdHtcclxuICBsZWZ0OiAwO1xyXG59XHJcblxyXG4ubW92aWVSb3ctLXJpZ2h0e1xyXG4gIHJpZ2h0OiAwO1xyXG59XHJcblxyXG5cclxuXHJcbkBtZWRpYSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2MHB4KXtcclxuICAubW92aWVSb3ctLWxlZnQsXHJcbiAgLm1vdmllUm93LS1yaWdodHtcclxuICAgIG9wYWNpdHk6IDE7XHJcbiAgfVxyXG59XHJcblxyXG4iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>header {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background: transparent;
+  transition: all ease 0.5s;
+}
+
+header.black{
+  background-color: #141414;
+}
+.header--logo{
+  height: 30px;
+}
+
+.header--logo img {
+  height: 100%;
+
+}
+
+.header--user{
+  height: 40px;
+
+}
+
+.header--user img{
+  height: 100%;
+  background-color: white;
+  border-radius: 3px;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9IZWFkZXIuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsZUFBZTtFQUNmLFlBQVk7RUFDWixNQUFNO0VBQ04sT0FBTztFQUNQLFFBQVE7RUFDUixZQUFZO0VBQ1osYUFBYTtFQUNiLDhCQUE4QjtFQUM5QixtQkFBbUI7RUFDbkIsZUFBZTtFQUNmLHVCQUF1QjtFQUN2Qix5QkFBeUI7QUFDM0I7O0FBRUE7RUFDRSx5QkFBeUI7QUFDM0I7QUFDQTtFQUNFLFlBQVk7QUFDZDs7QUFFQTtFQUNFLFlBQVk7O0FBRWQ7O0FBRUE7RUFDRSxZQUFZOztBQUVkOztBQUVBO0VBQ0UsWUFBWTtFQUNaLHVCQUF1QjtFQUN2QixrQkFBa0I7QUFDcEIiLCJzb3VyY2VzQ29udGVudCI6WyJoZWFkZXIge1xyXG4gIHBvc2l0aW9uOiBmaXhlZDtcclxuICB6LWluZGV4OiA5OTk7XHJcbiAgdG9wOiAwO1xyXG4gIGxlZnQ6IDA7XHJcbiAgcmlnaHQ6IDA7XHJcbiAgaGVpZ2h0OiA3MHB4O1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbiAgcGFkZGluZzogMCAzMHB4O1xyXG4gIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50O1xyXG4gIHRyYW5zaXRpb246IGFsbCBlYXNlIDAuNXM7XHJcbn1cclxuXHJcbmhlYWRlci5ibGFja3tcclxuICBiYWNrZ3JvdW5kLWNvbG9yOiAjMTQxNDE0O1xyXG59XHJcbi5oZWFkZXItLWxvZ297XHJcbiAgaGVpZ2h0OiAzMHB4O1xyXG59XHJcblxyXG4uaGVhZGVyLS1sb2dvIGltZyB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG5cclxufVxyXG5cclxuLmhlYWRlci0tdXNlcntcclxuICBoZWlnaHQ6IDQwcHg7XHJcblxyXG59XHJcblxyXG4uaGVhZGVyLS11c2VyIGltZ3tcclxuICBoZWlnaHQ6IDEwMCU7XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xyXG59XHJcbiJdLCJzb3VyY2VSb290IjoiIn0= */</style><style>.featured{
+  height: 100vh;
+  
+}
+
+.featured--vertical{
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to top, #111 10%, transparent 90%);
+}
+
+.featured--horizontal{
+  width: inherit;
+  height: inherit;
+  background: linear-gradient(to right, #111 30%, transparent 70%) ;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 30px;
+  padding-bottom: 150px;
+  padding-top: 70px;
+}
+
+.featured--name{
+  font-size:60px;
+  font-weight: bold;
+
+}
+
+.featured--info{
+  font-size: 18;
+  font-weight: bold;
+  margin-top:15px;
+}
+
+
+.featured--points,
+.featured--year,
+.featured--seasons {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.featured--points{
+  color: #46d369 ;
+}
+
+.featured--description {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #999;
+  max-width: 40%;
+}
+
+.featured--buttons{
+  margin-top:15px;
+}
+
+.featured--watchbutton,
+.featured--mylistbutton{
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-right: 10px;
+  opacity: 1;
+  transition: all ease 0.2;
+}
+
+.featured--watchbutton:hover,
+.featured--mylistbutton:hover{
+  opacity: 0.7;
+
+}
+.featured--watchbutton{
+  background-color: #fff;
+  color: #000;
+}
+
+.featured--mylistbutton{
+  background-color: #333;
+  color: #fff;
+}
+
+.featured--genres{
+  margin-top: 15px;
+  font-size: 18px;
+  color: #999;
+}
+
+
+
+@media screen and (max-width: 760px){
+  .featured{
+    height: 80px;
+  }
+
+  .featured--name{
+    font-size: 40px;
+  }
+
+  .featured--info,
+  .featured--watchbutton,
+  .featured--mylistbutton
+  {
+    font-size: 16px;
+  }
+
+  .featured--description{
+    font-size: 14px;
+    max-width: 100%;
+    margin-right: 30px;
+  }
+
+
+  .featured--genres{
+    font-size: 14px;
+  }
+
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvY29tcG9uZW50cy9GZWF0dXJlZE1vdmllLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7O0FBRWY7O0FBRUE7RUFDRSxjQUFjO0VBQ2QsZUFBZTtFQUNmLDhEQUE4RDtBQUNoRTs7QUFFQTtFQUNFLGNBQWM7RUFDZCxlQUFlO0VBQ2YsaUVBQWlFO0VBQ2pFLGFBQWE7RUFDYixzQkFBc0I7RUFDdEIsdUJBQXVCO0VBQ3ZCLGtCQUFrQjtFQUNsQixxQkFBcUI7RUFDckIsaUJBQWlCO0FBQ25COztBQUVBO0VBQ0UsY0FBYztFQUNkLGlCQUFpQjs7QUFFbkI7O0FBRUE7RUFDRSxhQUFhO0VBQ2IsaUJBQWlCO0VBQ2pCLGVBQWU7QUFDakI7OztBQUdBOzs7RUFHRSxxQkFBcUI7RUFDckIsa0JBQWtCO0FBQ3BCOztBQUVBO0VBQ0UsZUFBZTtBQUNqQjs7QUFFQTtFQUNFLGdCQUFnQjtFQUNoQixlQUFlO0VBQ2YsV0FBVztFQUNYLGNBQWM7QUFDaEI7O0FBRUE7RUFDRSxlQUFlO0FBQ2pCOztBQUVBOztFQUVFLHFCQUFxQjtFQUNyQixlQUFlO0VBQ2YsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixrQkFBa0I7RUFDbEIscUJBQXFCO0VBQ3JCLGtCQUFrQjtFQUNsQixVQUFVO0VBQ1Ysd0JBQXdCO0FBQzFCOztBQUVBOztFQUVFLFlBQVk7O0FBRWQ7QUFDQTtFQUNFLHNCQUFzQjtFQUN0QixXQUFXO0FBQ2I7O0FBRUE7RUFDRSxzQkFBc0I7RUFDdEIsV0FBVztBQUNiOztBQUVBO0VBQ0UsZ0JBQWdCO0VBQ2hCLGVBQWU7RUFDZixXQUFXO0FBQ2I7Ozs7QUFJQTtFQUNFO0lBQ0UsWUFBWTtFQUNkOztFQUVBO0lBQ0UsZUFBZTtFQUNqQjs7RUFFQTs7OztJQUlFLGVBQWU7RUFDakI7O0VBRUE7SUFDRSxlQUFlO0lBQ2YsZUFBZTtJQUNmLGtCQUFrQjtFQUNwQjs7O0VBR0E7SUFDRSxlQUFlO0VBQ2pCOztBQUVGIiwic291cmNlc0NvbnRlbnQiOlsiLmZlYXR1cmVke1xyXG4gIGhlaWdodDogMTAwdmg7XHJcbiAgXHJcbn1cclxuXHJcbi5mZWF0dXJlZC0tdmVydGljYWx7XHJcbiAgd2lkdGg6IGluaGVyaXQ7XHJcbiAgaGVpZ2h0OiBpbmhlcml0O1xyXG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCh0byB0b3AsICMxMTEgMTAlLCB0cmFuc3BhcmVudCA5MCUpO1xyXG59XHJcblxyXG4uZmVhdHVyZWQtLWhvcml6b250YWx7XHJcbiAgd2lkdGg6IGluaGVyaXQ7XHJcbiAgaGVpZ2h0OiBpbmhlcml0O1xyXG4gIGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudCh0byByaWdodCwgIzExMSAzMCUsIHRyYW5zcGFyZW50IDcwJSkgO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxuICBwYWRkaW5nLWxlZnQ6IDMwcHg7XHJcbiAgcGFkZGluZy1ib3R0b206IDE1MHB4O1xyXG4gIHBhZGRpbmctdG9wOiA3MHB4O1xyXG59XHJcblxyXG4uZmVhdHVyZWQtLW5hbWV7XHJcbiAgZm9udC1zaXplOjYwcHg7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcblxyXG59XHJcblxyXG4uZmVhdHVyZWQtLWluZm97XHJcbiAgZm9udC1zaXplOiAxODtcclxuICBmb250LXdlaWdodDogYm9sZDtcclxuICBtYXJnaW4tdG9wOjE1cHg7XHJcbn1cclxuXHJcblxyXG4uZmVhdHVyZWQtLXBvaW50cyxcclxuLmZlYXR1cmVkLS15ZWFyLFxyXG4uZmVhdHVyZWQtLXNlYXNvbnMge1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XHJcbn1cclxuXHJcbi5mZWF0dXJlZC0tcG9pbnRze1xyXG4gIGNvbG9yOiAjNDZkMzY5IDtcclxufVxyXG5cclxuLmZlYXR1cmVkLS1kZXNjcmlwdGlvbiB7XHJcbiAgbWFyZ2luLXRvcDogMTVweDtcclxuICBmb250LXNpemU6IDIwcHg7XHJcbiAgY29sb3I6ICM5OTk7XHJcbiAgbWF4LXdpZHRoOiA0MCU7XHJcbn1cclxuXHJcbi5mZWF0dXJlZC0tYnV0dG9uc3tcclxuICBtYXJnaW4tdG9wOjE1cHg7XHJcbn1cclxuXHJcbi5mZWF0dXJlZC0td2F0Y2hidXR0b24sXHJcbi5mZWF0dXJlZC0tbXlsaXN0YnV0dG9ue1xyXG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICBmb250LXNpemU6IDIwcHg7XHJcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgcGFkZGluZzogMTJweCAyNXB4O1xyXG4gIGJvcmRlci1yYWRpdXM6IDVweDtcclxuICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgbWFyZ2luLXJpZ2h0OiAxMHB4O1xyXG4gIG9wYWNpdHk6IDE7XHJcbiAgdHJhbnNpdGlvbjogYWxsIGVhc2UgMC4yO1xyXG59XHJcblxyXG4uZmVhdHVyZWQtLXdhdGNoYnV0dG9uOmhvdmVyLFxyXG4uZmVhdHVyZWQtLW15bGlzdGJ1dHRvbjpob3ZlcntcclxuICBvcGFjaXR5OiAwLjc7XHJcblxyXG59XHJcbi5mZWF0dXJlZC0td2F0Y2hidXR0b257XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcclxuICBjb2xvcjogIzAwMDtcclxufVxyXG5cclxuLmZlYXR1cmVkLS1teWxpc3RidXR0b257XHJcbiAgYmFja2dyb3VuZC1jb2xvcjogIzMzMztcclxuICBjb2xvcjogI2ZmZjtcclxufVxyXG5cclxuLmZlYXR1cmVkLS1nZW5yZXN7XHJcbiAgbWFyZ2luLXRvcDogMTVweDtcclxuICBmb250LXNpemU6IDE4cHg7XHJcbiAgY29sb3I6ICM5OTk7XHJcbn1cclxuXHJcblxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDogNzYwcHgpe1xyXG4gIC5mZWF0dXJlZHtcclxuICAgIGhlaWdodDogODBweDtcclxuICB9XHJcblxyXG4gIC5mZWF0dXJlZC0tbmFtZXtcclxuICAgIGZvbnQtc2l6ZTogNDBweDtcclxuICB9XHJcblxyXG4gIC5mZWF0dXJlZC0taW5mbyxcclxuICAuZmVhdHVyZWQtLXdhdGNoYnV0dG9uLFxyXG4gIC5mZWF0dXJlZC0tbXlsaXN0YnV0dG9uXHJcbiAge1xyXG4gICAgZm9udC1zaXplOiAxNnB4O1xyXG4gIH1cclxuXHJcbiAgLmZlYXR1cmVkLS1kZXNjcmlwdGlvbntcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIG1heC13aWR0aDogMTAwJTtcclxuICAgIG1hcmdpbi1yaWdodDogMzBweDtcclxuICB9XHJcblxyXG5cclxuICAuZmVhdHVyZWQtLWdlbnJlc3tcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICB9XHJcblxyXG59XHJcbiJdLCJzb3VyY2VSb290IjoiIn0= */</style></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="page"><header class=""><div class="header--logo"><a href="http://localhost:3000/"><img src="./React App_files/1920px-Netflix_2015_logo.svg.png" alt="netflix"></a></div><div class="header--user"><a href="http://localhost:3000/"><img src="./React App_files/unnamed.jpg" alt=""></a></div></header><section class="featured" style="background-size: cover; background-position: center center; background-image: url(&quot;https://image.tmdb.org/t/p/original/p7fwOnlxYYlB4A8U2b0JfX21Rr1.jpg&quot;);"><div class="featured--vertical"><div class="featured--horizontal"><div class="featured--name">The Mandalorian</div><div class="featured--info"><div class="featured--points">8.5 pontos</div><div class="featured--year">2019</div><div class="featured--seasons">2 temporadas</div><div class="featured--description">A saga de um guerreiro solitário, que também é um mercenário e pistoleiro, viajando pelos territórios esquecidos e marginais do espaço, logo após a queda do Império e antes da criação da temida Primeira Ordem.</div><div class="featured--buttons"><a href="http://localhost:3000/watch/82856" class="featured--watchbutton"> ▶ Assistir</a><a href="http://localhost:3000/list/add/82856" class="featured--mylistbutton"> + Minha Lista</a></div><div class="featured--genres"><strong>Gêneros:</strong>Sci-Fi &amp; Fantasy, Action &amp; Adventure</div></div></div></div></section><section class="lists"><div class="movieRow"><div class="movieRow--left"><img src="./React App_files/chevron-left.png"></div><div class="movieRow--right"><img src="./React App_files/chevron-right.png"></div><h2>Originais do Netflix </h2><div class="movieRow--listarea"><div class="movieRow--list" style="margin-left: -400px; width: 3000px;"><div class="movieRow--item"><img src="./React App_files/cm5xwxoWl2ZWuCKzwa0umHHsbmI.jpg"></div><div class="movieRow--item"><img src="./React App_files/pHcNHYPg0c2vg7qay6wjJoApUgS.jpg"></div><div class="movieRow--item"><img src="./React App_files/roFJeeBbcFYCaTfmKaCQ7wtCT5l.jpg"></div><div class="movieRow--item"><img src="./React App_files/5GKRz38rqy2B45fj3T4MR6sJxAm.jpg"></div><div class="movieRow--item"><img src="./React App_files/jtLB7xJKcbekmOYkb5NZditBsgk.jpg"></div><div class="movieRow--item"><img src="./React App_files/eTMMU2rKpZRbo9ERytyhwatwAjz.jpg"></div><div class="movieRow--item"><img src="./React App_files/1HAm7sxXu9eGVvs8BIAlkCKGaTd.jpg"></div><div class="movieRow--item"><img src="./React App_files/oktTNFM8PzdseiK1X0E0XhB6LvP.jpg"></div><div class="movieRow--item"><img src="./React App_files/BbNvKCuEF4SRzFXR16aK6ISFtR.jpg"></div><div class="movieRow--item"><img src="./React App_files/1sBx2Ew4WFsa1YY32vlHt079O03.jpg"></div><div class="movieRow--item"><img src="./React App_files/dEZK7wb5VQsflOXHoEMYwv4aV1g.jpg"></div><div class="movieRow--item"><img src="./React App_files/rn83wKCiDgJlHNwcEop8fwJUFLc.jpg"></div><div class="movieRow--item"><img src="./React App_files/n6UNHZoiYj81abwmG38HbNjflDx.jpg"></div><div class="movieRow--item"><img src="./React App_files/pjXEIzJdXskyHdgih4YrpsWl4A.jpg"></div><div class="movieRow--item"><img src="./React App_files/mQ9cyw1gfpK1M3a69cgXFHvWkih.jpg"></div><div class="movieRow--item"><img src="./React App_files/m6qf6lq3yARgbZwspvDLbUFtASh.jpg"></div><div class="movieRow--item"><img src="./React App_files/sgxawbFB5Vi5OkPWQLNfl3dvkNJ.jpg"></div><div class="movieRow--item"><img src="./React App_files/vJ0L1IpW5HJTlLJ6I8vBiohlyGa.jpg"></div><div class="movieRow--item"><img src="./React App_files/2IDcscTfAhDVWmbpy3cXgvryxt5.jpg"></div><div class="movieRow--item"><img src="./React App_files/iehrrb9CmYCiV1hXp5pdGQQmGNe.jpg"></div></div></div></div><div class="movieRow"><div class="movieRow--left"><img src="./React App_files/chevron-left.png"></div><div class="movieRow--right"><img src="./React App_files/chevron-right.png"></div><h2>Recomendados para Você </h2><div class="movieRow--listarea"><div class="movieRow--list" style="margin-left: -400px; width: 3000px;"><div class="movieRow--item"><img src="./React App_files/cm5xwxoWl2ZWuCKzwa0umHHsbmI.jpg"></div><div class="movieRow--item"><img src="./React App_files/f32ne52ClTPFL9Ew2aPUhKoVn9e.jpg"></div><div class="movieRow--item"><img src="./React App_files/AweDlIiohqw4sjC7gCsPVd1zo77.jpg"></div><div class="movieRow--item"><img src="./React App_files/98UFAKFPUOIzF91Q0j0W7vR4ikV.jpg"></div><div class="movieRow--item"><img src="./React App_files/b7BllsQkD6nTkAdtd28UVCmKqVi.jpg"></div><div class="movieRow--item"><img src="./React App_files/cLqg9BjcecdzYGqURSdWgBUO3rX.jpg"></div><div class="movieRow--item"><img src="./React App_files/WQVbDbIWyVOlGXcfO69hQh3gAT.jpg"></div><div class="movieRow--item"><img src="./React App_files/xSDdRAjxKAGi8fUBLOqSrBhJmF0.jpg"></div><div class="movieRow--item"><img src="./React App_files/ov6ES8aMntZJ6bbhOhhSwNoZbVf.jpg"></div><div class="movieRow--item"><img src="./React App_files/zMnQh4sNYySLJvSZSSJ2HGIeKw6.jpg"></div><div class="movieRow--item"><img src="./React App_files/bzDAfXoqNAvWUe7uss2NE3BmRqy.jpg"></div><div class="movieRow--item"><img src="./React App_files/k68nPLbIST6NP96JmTxmZijEvCA.jpg"></div><div class="movieRow--item"><img src="./React App_files/vnVQx7MJMwTvqcn5pkYDImxzlMg.jpg"></div><div class="movieRow--item"><img src="./React App_files/rofFkTuMwwIJpWJVQaTRYqfQuoN.jpg"></div><div class="movieRow--item"><img src="./React App_files/n6UNHZoiYj81abwmG38HbNjflDx.jpg"></div><div class="movieRow--item"><img src="./React App_files/sJecw4UYpvTgKE2zS9le44Nwuag.jpg"></div><div class="movieRow--item"><img src="./React App_files/pHcNHYPg0c2vg7qay6wjJoApUgS.jpg"></div><div class="movieRow--item"><img src="./React App_files/mQ9cyw1gfpK1M3a69cgXFHvWkih.jpg"></div><div class="movieRow--item"><img src="./React App_files/FHpjm49uWcwqE3qITgysvBb6sw.jpg"></div><div class="movieRow--item"><img src="./React App_files/vcQY8T1owyMMRmp9dZiUTUQVxKW.jpg"></div></div></div></div><div class="movieRow"><div class="movieRow--left"><img src="./React App_files/chevron-left.png"></div><div class="movieRow--right"><img src="./React App_files/chevron-right.png"></div><h2>Em Alta </h2><div class="movieRow--listarea"><div class="movieRow--list" style="margin-left: -400px; width: 3000px;"><div class="movieRow--item"><img src="./React App_files/fYtHxTxlhzD4QWfEbrC1rypysSD.jpg"></div><div class="movieRow--item"><img src="./React App_files/pci1ArYW7oJ2eyTo2NMYEKHHiCP.jpg"></div><div class="movieRow--item"><img src="./React App_files/2CAL2433ZeIihfX1Hb2139CX0pW.jpg"></div><div class="movieRow--item"><img src="./React App_files/ehAKuE48okTuonq6TpsNQj8vFTC.jpg"></div><div class="movieRow--item"><img src="./React App_files/oyG9TL7FcRP4EZ9Vid6uKzwdndz.jpg"></div><div class="movieRow--item"><img src="./React App_files/4BSuFpQ2gd2WtO5ZK1fMjaMPMRc.jpg"></div><div class="movieRow--item"><img src="./React App_files/oJagOzBu9Rdd9BrciseCm3U3MCU.jpg"></div><div class="movieRow--item"><img src="./React App_files/bGhhNzJYDsuLruNN5bJ2PvLcMiq.jpg"></div><div class="movieRow--item"><img src="./React App_files/vfJFJPepRKapMd5G2ro7klIRysq.jpg"></div><div class="movieRow--item"><img src="./React App_files/yB3AkkGMFplGlnPqQZ38W7bdD10.jpg"></div><div class="movieRow--item"><img src="./React App_files/lyx0rfL4g6mfUJfSC17pEYXR3xW.jpg"></div><div class="movieRow--item"><img src="./React App_files/kIHgjAkuzvKBnmdstpBOo4AfZah.jpg"></div><div class="movieRow--item"><img src="./React App_files/tF7AXdCygfZ2XHLHx7K2xqnkhHI.jpg"></div><div class="movieRow--item"><img src="./React App_files/bNBXskBHOwPSW21o7iT3N8QVg9L.jpg"></div><div class="movieRow--item"><img src="./React App_files/igw938inb6Fy0YVcwIyxQ7Lu5FO.jpg"></div><div class="movieRow--item"><img src="./React App_files/lnlEWSvfiHbQOgVyfnEqU1q31Yg.jpg"></div><div class="movieRow--item"><img src="./React App_files/euWiWsHhPeSGFsIO5ArzCkGeskG.jpg"></div><div class="movieRow--item"><img src="./React App_files/2RKjFMIlb3UmvUtxeM1uzS0WMhG.jpg"></div><div class="movieRow--item"><img src="./React App_files/tptjnB2LDbuUWya9Cx5sQtv5hqb.jpg"></div><div class="movieRow--item"><img src="./React App_files/h8PEObIiYUo4wHGo2qgWge2wqzv.jpg"></div></div></div></div><div class="movieRow"><div class="movieRow--left"><img src="./React App_files/chevron-left.png"></div><div class="movieRow--right"><img src="./React App_files/chevron-right.png"></div><h2>Ação </h2><div class="movieRow--listarea"><div class="movieRow--list" style="margin-left: -400px; width: 3000px;"><div class="movieRow--item"><img src="./React App_files/AweDlIiohqw4sjC7gCsPVd1zo77.jpg"></div><div class="movieRow--item"><img src="./React App_files/rofFkTuMwwIJpWJVQaTRYqfQuoN.jpg"></div><div class="movieRow--item"><img src="./React App_files/vnVQx7MJMwTvqcn5pkYDImxzlMg.jpg"></div><div class="movieRow--item"><img src="./React App_files/fMXRTTMiEsvSFqhRuoeZXKcl3QP.jpg"></div><div class="movieRow--item"><img src="./React App_files/JmtaGCYsTv484MByG2AqmVqNcf.jpg"></div><div class="movieRow--item"><img src="./React App_files/2W4ZvACURDyhiNnSIaFPHfNbny3.jpg"></div><div class="movieRow--item"><img src="./React App_files/vcQY8T1owyMMRmp9dZiUTUQVxKW.jpg"></div><div class="movieRow--item"><img src="./React App_files/6llUjNLsLiAcpIOer9LR631HPoU.jpg"></div><div class="movieRow--item"><img src="./React App_files/1n5q3XpEhCe7TnGHzsHs5pwVT8O.jpg"></div><div class="movieRow--item"><img src="./React App_files/k68nPLbIST6NP96JmTxmZijEvCA.jpg"></div><div class="movieRow--item"><img src="./React App_files/lh9jmB0FVXjjs4z9ehX6O5wN915.jpg"></div><div class="movieRow--item"><img src="./React App_files/A50Ngq9lh9aCTGHC6kttrppHNoF.jpg"></div><div class="movieRow--item"><img src="./React App_files/twYROzuKox3JfvB9JagOXCr8UIQ.jpg"></div><div class="movieRow--item"><img src="./React App_files/2umU3r6V4V2gTmSnZJmH61nTorF.jpg"></div><div class="movieRow--item"><img src="./React App_files/zuoarGHnpcFVg3DMxTp7e5ASnaK.jpg"></div><div class="movieRow--item"><img src="./React App_files/klAIFewuqcyEmH1SMtR2XbMyqzM.jpg"></div><div class="movieRow--item"><img src="./React App_files/spcpJtT7Ac3YAHy9a36uP3B0Yhd.jpg"></div><div class="movieRow--item"><img src="./React App_files/zO5913BWcWYrhgACNpaaw9CCycX.jpg"></div><div class="movieRow--item"><img src="./React App_files/sTKl7J5OWnsZSTRiKPIvPx4ngBG.jpg"></div><div class="movieRow--item"><img src="./React App_files/5DS1Xh1dxfrR1H0sqATPxkwWFzi.jpg"></div></div></div></div><div class="movieRow"><div class="movieRow--left"><img src="./React App_files/chevron-left.png"></div><div class="movieRow--right"><img src="./React App_files/chevron-right.png"></div><h2>Comédia </h2><div class="movieRow--listarea"><div class="movieRow--list" style="margin-left: -400px; width: 3000px;"><div class="movieRow--item"><img src="./React App_files/bzDAfXoqNAvWUe7uss2NE3BmRqy.jpg"></div><div class="movieRow--item"><img src="./React App_files/vcQY8T1owyMMRmp9dZiUTUQVxKW.jpg"></div><div class="movieRow--item"><img src="./React App_files/qz8V4opEXdcY7qeU5djTdrfmuhX.jpg"></div><div class="movieRow--item"><img src="./React App_files/bBRDUTr6jgbD8I8A9DvVGrVbdfB.jpg"></div><div class="movieRow--item"><img src="./React App_files/mKRiLf2SCU9ySjByMLMxKYs5c1i.jpg"></div><div class="movieRow--item"><img src="./React App_files/zDETzyiUH9r3OMDioeCs8LZpY50.jpg"></div><div class="movieRow--item"><img src="./React App_files/AmX4KtXxitVpzYX170eP4UEwc3I.jpg"></div><div class="movieRow--item"><img src="./React App_files/d88x4Jnyhr4xErOYeJCspcxI34h.jpg"></div><div class="movieRow--item"><img src="./React App_files/orrJiQs30G6zSkT8is4QOAtRpFM.jpg"></div><div class="movieRow--item"><img src="./React App_files/9kUoCeyFAfYZKrGI27gSsnnsHN0.jpg"></div><div class="movieRow--item"><img src="./React App_files/334CebHp60Kg8xhMnJrrTtgiRxK.jpg"></div><div class="movieRow--item"><img src="./React App_files/9jdMSIPbwK0wgjuOQz0AvkYQ4M3.jpg"></div><div class="movieRow--item"><img src="./React App_files/x8T7xy6usNhTWphfQTH7vmr4tOC.jpg"></div><div class="movieRow--item"><img src="./React App_files/pUWLjghPZIawBAA2eI8Mq5yXe6e.jpg"></div><div class="movieRow--item"><img src="./React App_files/lnlEWSvfiHbQOgVyfnEqU1q31Yg.jpg"></div><div class="movieRow--item"><img src="./React App_files/b5jbUHQ7DRHYbbKFR40d2kyr2zV.jpg"></div><div class="movieRow--item"><img src="./React App_files/e06BpqZIxRSpvNSbItcGcgs0S5I.jpg"></div><div class="movieRow--item"><img src="./React App_files/kvPMOqOQqYiJhwll5TZV0OTDOcv.jpg"></div><div class="movieRow--item"><img src="./React App_files/1k6iwC4KaPvTBt1JuaqXy3noZRY.jpg"></div><div class="movieRow--item"><img src="./React App_files/igw938inb6Fy0YVcwIyxQ7Lu5FO.jpg"></div></div></div></div><div class="movieRow"><div class="movieRow--left"><img src="./React App_files/chevron-left.png"></div><div class="movieRow--right"><img src="./React App_files/chevron-right.png"></div><h2>Terror </h2><div class="movieRow--listarea"><div class="movieRow--list" style="margin-left: 0px; width: 3000px;"><div class="movieRow--item"><img src="./React App_files/9I2ATBaOfwXo23vSBfEAQ3uZhGV.jpg"></div><div class="movieRow--item"><img src="./React App_files/h7dZpJDORYs5c56dydbrLFkEXpE.jpg"></div><div class="movieRow--item"><img src="./React App_files/gsOyXyBWMtzXXRQ3PVLSk8Fsvz5.jpg"></div><div class="movieRow--item"><img src="./React App_files/tBi5xW9Rd0YoGB0aAggV0EN5LDP.jpg"></div><div class="movieRow--item"><img src="./React App_files/4XYEqHqvcf6vxFhNyeKZz5xbUfV.jpg"></div><div class="movieRow--item"><img src="./React App_files/6RcWaW43UWIJzhIp6bcmui2efd.jpg"></div><div class="movieRow--item"><img src="./React App_files/2EjUq3eqvDKU4EXh482IQcttcx4.jpg"></div><div class="movieRow--item"><img src="./React App_files/orrJiQs30G6zSkT8is4QOAtRpFM.jpg"></div><div class="movieRow--item"><img src="./React App_files/9QVsMxpZX6qyYE0yRptbyiR9YOl.jpg"></div><div class="movieRow--item"><img src="./React App_files/e6hgmD0P133bW5EH1kfhscwXN2a.jpg"></div><div class="movieRow--item"><img src="./React App_files/Xt37loPwHjipC1qaCbfLfDcFu4.jpg"></div><div class="movieRow--item"><img src="./React App_files/dGVUiqnahQ4ZZRchGRpO2SyhtQY.jpg"></div><div class="movieRow--item"><img src="./React App_files/n9OzZmPMnVrV0cMQ7amX0DtBkQH.jpg"></div><div class="movieRow--item"><img src="./React App_files/gzFatNrw0lhKD5NxaU6zC7S2KjP.jpg"></div><div class="movieRow--item"><img src="./React App_files/kD1WqQ0dYktu5xDTJ8IxCkCOUWt.jpg"></div><div class="movieRow--item"><img src="./React App_files/8F9xUvb1JMWUMkFV2Yq3aiueAbq.jpg"></div><div class="movieRow--item"><img src="./React App_files/r2BlIxjAaj0WERGrIehnczNE0On.jpg"></div><div class="movieRow--item"><img src="./React App_files/wZKJnAoNh91UQoP04f0NSjXTgQT.jpg"></div><div class="movieRow--item"><img src="./React App_files/1Hprz2gwHz1UpilLEGoD7KDO31C.jpg"></div><div class="movieRow--item"><img src="./React App_files/luBPZjYEIALVs5AKp95OI9aCX9M.jpg"></div></div></div></div><div class="movieRow"><div class="movieRow--left"><img src="./React App_files/chevron-left.png"></div><div class="movieRow--right"><img src="./React App_files/chevron-right.png"></div><h2>Romance </h2><div class="movieRow--listarea"><div class="movieRow--list" style="margin-left: -400px; width: 3000px;"><div class="movieRow--item"><img src="./React App_files/b7BllsQkD6nTkAdtd28UVCmKqVi.jpg"></div><div class="movieRow--item"><img src="./React App_files/kiX7UYfOpYrMFSAGbI6j1pFkLzQ.jpg"></div><div class="movieRow--item"><img src="./React App_files/dfmbwqkalJRfYqFSwNhRn4QYK30.jpg"></div><div class="movieRow--item"><img src="./React App_files/WQVbDbIWyVOlGXcfO69hQh3gAT.jpg"></div><div class="movieRow--item"><img src="./React App_files/iJFc9CUT7v1S3UmsEEaubG2Gcf5.jpg"></div><div class="movieRow--item"><img src="./React App_files/4mc6NmEWR4xPlT7JM2xRRTXMjfJ.jpg"></div><div class="movieRow--item"><img src="./React App_files/1lt7uwXxNXxurOQqnEyosG6Y5zb.jpg"></div><div class="movieRow--item"><img src="./React App_files/kvPMOqOQqYiJhwll5TZV0OTDOcv.jpg"></div><div class="movieRow--item"><img src="./React App_files/yVUIAKV1uGO4YzPWxweSing55gl.jpg"></div><div class="movieRow--item"><img src="./React App_files/qnf5Onsk236CdE5Lff93IX69gHf.jpg"></div><div class="movieRow--item"><img src="./React App_files/ywTSQfjmRe9DXLAgxXbFpjZJ2Yo.jpg"></div><div class="movieRow--item"><img src="./React App_files/u8kRdW12mhOakR9WqVnarQbqGNH.jpg"></div><div class="movieRow--item"><img src="./React App_files/cuEnmqQkp6lKkbMi4AAr0Yu3XOI.jpg"></div><div class="movieRow--item"><img src="./React App_files/lyx0rfL4g6mfUJfSC17pEYXR3xW.jpg"></div><div class="movieRow--item"><img src="./React App_files/3ZdJN62RyjoQJ9S4zCbjtMQrYqE.jpg"></div><div class="movieRow--item"><img src="./React App_files/jrf9rNJbz4IJJGNmb9GFalAv9L1.jpg"></div><div class="movieRow--item"><img src="./React App_files/zdkJs9j6yKo9di0kjtctM01fSMv.jpg"></div><div class="movieRow--item"><img src="./React App_files/wkmqFsEPH8Ly2eotlL5WRToAJ2f.jpg"></div><div class="movieRow--item"><img src="./React App_files/g4tPgPn0sGZEMvoJWYWnxlgTTWG.jpg"></div><div class="movieRow--item"><img src="./React App_files/t4kR6H71anOV85qzjOLlr9uVdFJ.jpg"></div></div></div></div><div class="movieRow"><div class="movieRow--left"><img src="./React App_files/chevron-left.png"></div><div class="movieRow--right"><img src="./React App_files/chevron-right.png"></div><h2>Animação </h2><div class="movieRow--listarea"><div class="movieRow--list" style="margin-left: -400px; width: 3000px;"><div class="movieRow--item"><img src="./React App_files/bzDAfXoqNAvWUe7uss2NE3BmRqy.jpg"></div><div class="movieRow--item"><img src="./React App_files/wbu0jVdH4eLh7Hx4xdQwUVGzYju.jpg"></div><div class="movieRow--item"><img src="./React App_files/vRTScutueW9gLF3dSo2Za7o0v7n.jpg"></div><div class="movieRow--item"><img src="./React App_files/kIHgjAkuzvKBnmdstpBOo4AfZah.jpg"></div><div class="movieRow--item"><img src="./React App_files/zO5913BWcWYrhgACNpaaw9CCycX.jpg"></div><div class="movieRow--item"><img src="./React App_files/bqBGQUV1IsLP1zXwMxwgXwYfNG2.jpg"></div><div class="movieRow--item"><img src="./React App_files/AmX4KtXxitVpzYX170eP4UEwc3I.jpg"></div><div class="movieRow--item"><img src="./React App_files/d88x4Jnyhr4xErOYeJCspcxI34h.jpg"></div><div class="movieRow--item"><img src="./React App_files/Ar8jquseIADaFtMH6dQpskLwDYf.jpg"></div><div class="movieRow--item"><img src="./React App_files/vaEX9f8ud7iF0G7EoyGxAyRNV1p.jpg"></div><div class="movieRow--item"><img src="./React App_files/ssk0Gd27ziryP2OUxprIVhAvr3e.jpg"></div><div class="movieRow--item"><img src="./React App_files/cbwQ3KTcILbJh8wRYJbVEp10IRE.jpg"></div><div class="movieRow--item"><img src="./React App_files/m9cn5mhW519QKr1YGpGxNWi98VJ.jpg"></div><div class="movieRow--item"><img src="./React App_files/97zKwVhOLyTnFbnuLZHbOboLyrM.jpg"></div><div class="movieRow--item"><img src="./React App_files/334CebHp60Kg8xhMnJrrTtgiRxK.jpg"></div><div class="movieRow--item"><img src="./React App_files/7WWOiP8F6PHjXpJrnRZfvO2XNW.jpg"></div><div class="movieRow--item"><img src="./React App_files/qHcn3PbjVHxBweDZxWpYH3JfugS.jpg"></div><div class="movieRow--item"><img src="./React App_files/lnlEWSvfiHbQOgVyfnEqU1q31Yg.jpg"></div><div class="movieRow--item"><img src="./React App_files/1lt7uwXxNXxurOQqnEyosG6Y5zb.jpg"></div><div class="movieRow--item"><img src="./React App_files/1k6iwC4KaPvTBt1JuaqXy3noZRY.jpg"></div></div></div></div></section></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./React App_files/bundle.js.baixados"></script><script src="./React App_files/vendors_main.chunk.js.baixados"></script><script src="./React App_files/main.chunk.js.baixados"></script>
+
+</body></html>

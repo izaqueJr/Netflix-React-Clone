@@ -1,0 +1,15 @@
+webpackHotUpdate("main",{
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./node_modules/postcss-loader/src/index.js?!./src/components/FeaturedMovie.css":
+/*!*********************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-oneOf-4-1!./node_modules/postcss-loader/src??postcss!./src/components/FeaturedMovie.css ***!
+  \*********************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, exports) {
+
+throw new Error("Module build failed (from ./node_modules/postcss-loader/src/index.js):\nSyntaxError\n\n(114:5) Unknown word\n\n \u001b[90m 112 | \u001b[39m  \u001b[33m.featured--watchbutton,\u001b[39m\n \u001b[90m 113 | \u001b[39m  \u001b[33m.featured--mylistbutton\u001b[39m\u001b[33m{\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 114 | \u001b[39m    font\n \u001b[90m     | \u001b[39m    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 115 | \u001b[39m  \u001b[33m}\u001b[39m\n \u001b[90m 116 | \u001b[39m\n");
+
+/***/ })
+
+})
+//# sourceMappingURL=main.e3302f04b71c845b3f80.hot-update.js.map
