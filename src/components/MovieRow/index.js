@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import './MovieRow.css'
-{/* <img src="https://img.icons8.com/ios-glyphs/60/000000/chevron-right.png"/> */ }
+
+import { Link } from 'react-router-dom'
+
+
 export default ({ title, items }) => {
   const [scrollX, setScrollX] = useState(-400)
 
@@ -43,9 +46,12 @@ export default ({ title, items }) => {
           width: items.results.length * 150
         }}>
           {items.results.length > 0 && items.results.map((item, key) => (
-            <div key={key} className="movieRow--item">
-              <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.orignal_title} />
-            </div>
+
+            <Link to={`info-page/${item.id}`}>
+              <div key={key} className="movieRow--item">
+                <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.orignal_title} />
+              </div>
+            </Link>
           ))}
         </div>
       </div>

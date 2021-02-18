@@ -20,37 +20,37 @@ export default {
       {
         slug: 'trending',
         title: 'Recomendados para Você',
-        items: await basicFetch(`/trending/all/week?language=pt-BR&api_key=${API_KEY}`)
+        items: await basicFetch(`/trending/tv/week?language=pt-BR&api_key=${API_KEY}`)
       },
       {
         slug: 'toprated',
         title: 'Em Alta',
-        items: await basicFetch(`/movie/top_rated?&language=pt-BR&api_key=${API_KEY}`)
-      },
-      {
-        slug: 'action',
-        title: 'Ação',
-        items: await basicFetch(`/discover/movie?with_genres=28&language=pt-BR&api_key=${API_KEY}`)
-      },
-      {
-        slug: 'comedy',
-        title: 'Comédia',
-        items: await basicFetch(`/discover/movie?with_genres=35&language=pt-BR&api_key=${API_KEY}`)
-      },
-      {
-        slug: 'horror',
-        title: 'Terror',
-        items: await basicFetch(`/discover/movie?with_genres=27&language=pt-BR&api_key=${API_KEY}`)
-      },
-      {
-        slug: 'romance',
-        title: 'Romance',
-        items: await basicFetch(`/discover/movie?with_genres=10749&language=pt-BR&api_key=${API_KEY}`)
+        items: await basicFetch(`/tv/top_rated?&language=pt-BR&api_key=${API_KEY}`)
       },
       {
         slug: 'animation',
         title: 'Animação',
-        items: await basicFetch(`/discover/movie?with_genres=16&language=pt-BR&api_key=${API_KEY}`)
+        items: await basicFetch(`/discover/tv?with_genres=16&language=pt-BR&api_key=${API_KEY}`)
+      },
+      {
+        slug: 'adventure',
+        title: 'Ação e Aventura',
+        items: await basicFetch(`/discover/tv?with_genres=10759&language=pt-BR&api_key=${API_KEY}`)
+      },
+      {
+        slug: 'kids',
+        title: 'Infantil',
+        items: await basicFetch(`/discover/tv?with_genres=10762&language=pt-BR&api_key=${API_KEY}`)
+      },
+      {
+        slug: 'reality',
+        title: 'Reality',
+        items: await basicFetch(`/discover/tv?with_genres=10764&language=pt-BR&api_key=${API_KEY}`)
+      },
+      {
+        slug: 'scifi&fantasy',
+        title: 'Sci-Fi & Fantasia',
+        items: await basicFetch(`/discover/tv?with_genres=10765&language=pt-BR&api_key=${API_KEY}`)
       },
     ];
   },
