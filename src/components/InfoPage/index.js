@@ -1,49 +1,47 @@
 import React, { Component } from 'react';
 import Header from '../Header';
-import Api from '../GetInfos'
-
-
-
-
+import FeaturedInfos from '../FeaturedInfos';
+import { API_KEY, Api } from '../GetAPI'
+import './InfoPage.css'
 
 class InfoPage extends Component {
   state = {
-    filmes: [],
+    serie: [],
+    trailer: [],
   }
 
   async componentDidMount() {
     let url = window.location.pathname
-    let teste = url.split('/')
-    const id = teste[2]
-    const API_KEY = '4fac81442e49a0849060733bebb2ac8a';
+    let separator = url.split('/')
+    const id = separator[2]
 
-    const video = await Api.get(`/tv/${id}/videos?api_key=${API_KEY}`);
-    console.log(video.data.results)
-    this.setState({ trailer: video.data.results[0].key });
+    await Api.get(`/tv/${id}/videos?api_key=${API_KEY}`).then((response) => {
+      const video = response
+      console.log(video.data.results)
+      this.setState({ trailer: video.data.results[0].key });
+    }).catch(error => { console.log(error) })
 
-    const response = await Api.get(`/tv/${id}?language=pt-BR&api_key=${API_KEY}`);
-    console.log(response.data)
-    this.setState({ filmes: response.data });
-
+    await Api.get(`/tv/${id}?language=pt-BR&api_key=${API_KEY}`).then((response) => {
+      const infoAboutVideos = response
+      this.setState({ serie: infoAboutVideos.data });
+    }).catch(error => { console.log(error) })
   }
 
   render() {
 
-    const { filmes } = this.state;
+    const { serie } = this.state;
     const { trailer } = this.state;
-    console.log(trailer)
+
     return (
 
 
       <div >
-        <Header />
-        <section className="featured" style={{
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${filmes.backdrop_path})`
-        }}>
-        </section>
-        {/* <iframe width="80%" height="700" src={`https://www.youtube.com/embed/${trailer}`} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+        <Header black={true} />
+        <div className="info--video">
+          <iframe src={`https://www.youtube.com/embed/${trailer}?showinfo=0&rel=0&modestbranding=1&autoplay=1`} frameborder="0" allow="accelerometer; autoplay=1; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <FeaturedInfos serie={serie} />
+
       </div >
 
     )
@@ -51,9 +49,6 @@ class InfoPage extends Component {
   }
 
 }
-
-// const req = await fetch(`${API_BASE} /tv/${id}?language=pt-BR&api_key=${API_KEY}`);
-
 
 export default InfoPage;
 

@@ -1,6 +1,5 @@
-const API_KEY = '4fac81442e49a0849060733bebb2ac8a';
+import { API_KEY } from '../GetAPI'
 const API_BASE = 'https://api.themoviedb.org/3';
-
 
 const basicFetch = async (endpoint) => {
   const req = await fetch(`${API_BASE}${endpoint}`);
