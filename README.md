@@ -27,5 +27,5 @@ e da página de visualização da série, que pega um video do YouTube para exib
 ## Galeria
 
 <img width="320" src="src/to_readme/img2.png">
-<img width="320" src="src/to_readme/img3.png">
+<img width="720" src="src/to_readme/img3.png">
 
