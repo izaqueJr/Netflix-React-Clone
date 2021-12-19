@@ -8,6 +8,7 @@ export default ({ serie }) => {
   for (let i in serie.genres) {
     genres.push(serie.genres[i].name)
   }
+  
   let created = []
   for (let i in serie.created_by) {
     created.push(serie.created_by[i].name)
