@@ -8,7 +8,7 @@ const Rotas = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path='/Netflix-React-Clone/' component={PaginaInicial} />
-      <Route path={`/info-page/`} component={InfoPage} />
+      <Route path={`/Netflix-React-Clone/info-page/`} component={InfoPage} />
     </Switch>
   </BrowserRouter>
 );
